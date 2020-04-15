@@ -10,8 +10,8 @@ BIN = ../prince
 OS      := $(shell uname)
 
 ifeq ($(OS),Darwin)
-LIBS := $(shell sdl2-config --libs) -lSDL2_image
-INCS := -I/opt/local/include
+LIBS := $(shell sdl2-config --libs) -lSDL2_image -lSDL2_mixer
+INCS := -I/opt/local/include -I/usr/local/include -L/usr/local/lib -lSDL2
 CFLAGS += $(INCS) -Wall -std=gnu99 -D_GNU_SOURCE=1 -D_THREAD_SAFE -DOSX -O2
 else
 LIBS := $(shell pkg-config --libs   sdl2 SDL2_image)
